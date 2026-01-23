@@ -1,10 +1,13 @@
+Lab link; https://my.ine.com/CyberSecurity/courses/06040120-3e1a-43cd-8ab3-d8d79df16b22/host-network-penetration-testing-the-metasploit-framework-msf/lab/6792b1f9-20f8-336c-a825-1dc9dc48b0ab
+
 Another source for pivoting: [[Pivoting using Metasploit]] 
 ###### First check the interfaces of the device you compromise 
 `ifconfig` or `ipconfig /all`
 
 Then add the network route by typing the bellow command
 ```bash
-run autoroute -s <subnet/CIDR>
+run autoroute -s <pivot_ip/CIDR>
+Ex: run autoroute -s 10.5.19.17/20
 ```
 
 Rename the session
@@ -31,8 +34,8 @@ exploit
 **Command:**
 
 ```
-ping -c 4 demo1.ine.local
-ping -c 4 demo2.ine.local
+ping -c 4 demo1.ine.local 10.0.19.197
+ping -c 4 demo2.ine.local 10.0.18.172
 ```
 
 ![Content Image](https://assets.ine.com/lab/learningpath/f96a16f89adb163c06ef3dafd62144662564680b2b493327fe55210613131a71.jpg)
@@ -128,6 +131,9 @@ But, we cannot access “demo2.ine.local” directly from the attacker’s machi
 We will add a route and then we will run an auxiliary port scanner module on the second victim machine to discover a host and open ports.
 
 **Command:**
+```
+run autoroute -s <target1_ip>/20
+```
 
 ```
 run autoroute -s 10.0.19.0/20

